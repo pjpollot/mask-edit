@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mask edit</title>
+    </head>
+    <body>
+        <h1>Mask edit</h1>
+
+        <div>
+            <label for="upload">Image upload</label>
+            <input id="upload" type="file">
+        </div>
+
+        <canvas id="canvas"></canvas>
+
+        <div>
+            <button id="brush" disabled>Brush</button>
+            <button id="eraser" disabled>Eraser</button>
+            <button id="clear" disabled>Clear</button>
+        </div>
+
+        <div>
+            <p><a download="background.png" id="download-back">Download background image</a></p>
+            <p><a download="mask.png" id="download-mask">Download mask</a></p>
+            <p><a download="image.png" id="download-image">Download masked image</a></p>
+        </div>
+
+        <script src="./script.js"></script>
+    </body>
+</html>
