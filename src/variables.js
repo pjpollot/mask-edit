@@ -8,7 +8,10 @@ let contexts = {};
 for (let key in canvases)
     contexts[key] = canvases[key].getContext("2d");
 
-const uploadElement = document.getElementById("upload");
+const uploadElements = {
+    middle: document.getElementById("upload-mask"),
+    back: document.getElementById("upload-image"),
+};
 
 const downloadElements = {
     front: document.getElementById("download-image"),

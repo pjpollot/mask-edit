@@ -1,5 +1,5 @@
-uploadElement.onchange = () => {
-    const file = uploadElement.files[0];
+uploadElements.back.onchange = () => {
+    const file = uploadElements.back.files[0];
     
     if (file.type.split("/")[0] !== "image")
         return;
@@ -29,10 +29,39 @@ uploadElement.onchange = () => {
         tools.brush.disabled = false;
         tools.eraser.disabled = false;
 
+        uploadElements.middle.disabled = false;
+
         console.log("Image loaded.");
     };
 
     image.src = URL.createObjectURL(file);
+};
+
+
+uploadElements.middle.onchange = () => {
+    const file = uploadElements.middle.files[0];
+    
+    if (file.type.split("/")[0] !== "image")
+        return;
+
+    const mask = new Image();
+
+    mask.onload = () => {
+        if (mask.width !== width || mask.height !== height)
+            console.warn("WARNING: the mask is resized to fit the picture.");
+
+        contexts.middle.drawImage(mask, 0, 0, width, height);
+        render();
+
+        selectedTool = "brush";
+        tools.brush.disabled = true;
+        tools.eraser.disabled = false;
+        tools.clear.disabled = false;
+
+        console.log("Mask loaded.");
+    };
+
+    mask.src = URL.createObjectURL(file);
 };
 
 
@@ -77,11 +106,11 @@ onkeydown = (event) => {
 
     switch (event.key.toLocaleLowerCase()) {
         case "j":
-            delta = -1;
+            delta = -2;
             break;
         
         case "k":
-            delta = 1;
+            delta = 2;
             break;
         
         default:

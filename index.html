@@ -8,8 +8,11 @@
         <h1>Mask edit</h1>
 
         <div>
-            <label for="upload">Image upload</label>
-            <input id="upload" type="file">
+            <label for="upload-image">Image upload</label>
+            <input id="upload-image" type="file">
+
+            <label for="upload-mask">Mask upload</label>
+            <input id="upload-mask" type="file" disabled>
         </div>
 
         <canvas id="canvas"></canvas>
@@ -18,6 +21,7 @@
             <button id="brush" disabled>Brush</button>
             <button id="eraser" disabled>Eraser</button>
             <button id="clear" disabled>Clear</button>
+            <p><i>Press [K] to increase the brush/eraser radius, and [J] to decrease it.</i></p>
         </div>
 
         <div>
